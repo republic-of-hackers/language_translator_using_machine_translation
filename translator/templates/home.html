@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  {% load static %}
+  <title> Translator App </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="{% static 'main.js' %}"> </script>
+</head>
+<body>
+
+  <!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Reset App</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">GitHub Repository</a>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="jumbotron"  style="height:100vh;">
+ <h1>Language Translator</h1>
+ <p>Here you can translate from English to German language or vice versa.</p>
+
+
+ <form method="GET" action="{% url 'etg' %}">
+  <div class="input-group mb-3 input-group-lg">
+    <div class="input-group-prepend">
+      <span class="input-group-text">English</span>
+    </div>
+    <input type="text" name="eng_text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-dark" style="width:200px; height:70px; margin-left:45%;">Translate to German</button>
+</form>
+
+
+<br>
+<br>
+
+<div class="card" style={{ access }}>
+  <b><label> &nbsp; German Output </label></b>
+    <div  class="card-body">{{ result }}</div>
+</div>
+
+<br>
+<br>
+<br>
+
+<form method="GET" action="{% url 'gte' %}">
+ <div class="input-group mb-3 input-group-lg">
+   <div class="input-group-prepend">
+     <span class="input-group-text">German</span>
+   </div>
+   <input type="text" name="ger_text" class="form-control">
+ </div>
+ <button type="submit" class="btn btn-dark" style="width:200px; height:70px; margin-left:45%;">Translate to English</button>
+</form>
+
+
+<br>
+<br>
+<br>
+
+
+<div class="card" style={{ access1 }}>
+  <b><label> &nbsp;English Output </label></b>
+    <div class="card-body">{{ result1 }}</div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+</div>
+</body>
+</html>
